@@ -1,101 +1,52 @@
-import Image from "next/image";
+"use client";
+import Menu from '@/components/Menu';
+import BookingForm from '../components/BookingForm';
+import { poiret, tangerine, mrsSaintDelafield, quicksand } from './fonts';
+import Events from '@/components/Events';
+import Footer from '@/components/Footer';
+import Link from 'next/link';
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+const HomePage = () => (
+  <div
+    className='h-screen bg-cover bg-center'
+    style={{ backgroundImage: "url('https://www.vistagroup.ch/fileadmin/_processed_/3/6/csm_Vista_23_c3920cc998.jpg')" }}
+  >
+    <div className='absolute inset-0 bg-black opacity-40'></div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    {/* Navbar Section */}
+    <div className='flex justify-between p-4 relative z-10'>
+      <div className='flex flex-col justify-end text-3xl -space-y-7 text-white'>
+        <div className=''>Estd.</div>
+        <div className='ml-2 text-5xl'>1964</div>
+      </div>
+      <h1 className={`${tangerine.className} text-4xl text-white`}>Trattoria da Fiorella</h1>
+      <Link href="/reserve" className={`${quicksand.className} text-lg text-white hover:underline cursor-pointer hidden md:block`}>
+          RESERVE
+      </Link>
     </div>
-  );
-}
+
+    {/* HERO */}
+    <div className='relative inset-x-0 w-full md:w-2/3 h-[80%] text-white flex flex-col items-start justify-end z-10 px-5 md:px-20 mb-20'>
+      <h1 className={`${tangerine.className} text-3xl md:text-6xl`}>
+        Bringing La Dolce Vita to Your Table.
+      </h1>
+      <p className={`${quicksand.className} text-xs md:text-lg md:mt-5`}>
+        Experience the joy of Italian living at Trattoria da Fiorella, where we bring La Dolce Vita—the sweet life—to every dish and every moment. Indulge in the rich traditions of Italy, from handmade pastas and wood-fired pizzas to our decadent desserts, all prepared with authentic recipes and the freshest ingredients. Whether you're gathering with loved ones or treating yourself to a night of culinary delight, let us transport you to the heart of Italy with every bite.
+      </p>
+      <button className={`${quicksand.className} bg-white hover:bg-black text-black hover:text-white px-2 py-1 text-lg mt-5`}>
+        Book a Table
+      </button>
+    </div>
+
+    <div className="flex items-center justify-start h-[400px]">
+      <div className={`${quicksand.className} w-full md:w-1/2 px-10 text-xl`}>
+        At <span className={`${tangerine.className} text-3xl`}>Tattaria de Fiorella</span>, we are dedicated to delivering a dining experience that reflects the soul of Italy. Located in the vibrant <span className={`${tangerine.className} text-3xl`}>heart of Naples</span>, our restaurant is a haven for those who appreciate the rich heritage of authentic Italian cuisine.
+      </div>
+    </div>
+    <Menu />
+    <Events />
+    <Footer />
+  </div>
+);
+
+export default HomePage;
