@@ -1,24 +1,35 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { DayPicker } from 'react-day-picker';
-import "react-day-picker/dist/style.css"; // Import DayPicker styles
+import "react-day-picker/dist/style.css";
 import { quicksand } from '../fonts';
 
-const AdminBookingPage = () => {
-    const [selectedDate, setSelectedDate] = useState(new Date());
-    const [bookings, setBookings] = useState([]);
-    const [loading, setLoading] = useState(false);
+interface Booking {
+    _id: string;
+    tableNumber: number;
+    date: string;
+    name: string;
+    time: string;
+    guests: number;
+    contact: string; 
+}
 
-    const fetchBookings = async (date) => {
+const AdminBookingPage: React.FC = () => {
+    const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+    const [bookings, setBookings] = useState<Booking[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
+
+    const fetchBookings = async (date: Date) => {
         setLoading(true);
         const formattedDate = date.toISOString().split('T')[0]; 
         const response = await fetch(`/api/bookings`); // Fetch bookings for the specific date
 
         if (response.ok) {
-            const data = await response.json();
+            const data: Booking[] = await response.json(); // Specify the type of data being fetched
             const filteredData = data.filter(booking =>
                 booking.date.toString().split('T')[0] === formattedDate
             ).map(booking => ({
+                _id: booking._id,
                 tableNumber: booking.tableNumber,
                 name: booking.name,
                 time: booking.time,
