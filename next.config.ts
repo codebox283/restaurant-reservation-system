@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/api/:path*', // Match any API request starting with /api
-        destination: 'http://localhost:5000/api/:path*', // Proxy to the backend server
+        destination: 'https://restaurant-reservation-backend-yhkl.onrender.com/api/:path*', // Proxy to the backend server
       },
     ];
   },
