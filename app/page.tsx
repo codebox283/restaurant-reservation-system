@@ -33,9 +33,9 @@ const HomePage = () => (
       <p className={`${quicksand.className} text-xs md:text-lg md:mt-5`}>
         Experience the joy of Italian living at Trattoria da Fiorella, where we bring La Dolce Vita—the sweet life—to every dish and every moment. Indulge in the rich traditions of Italy, from handmade pastas and wood-fired pizzas to our decadent desserts, all prepared with authentic recipes and the freshest ingredients. Whether you're gathering with loved ones or treating yourself to a night of culinary delight, let us transport you to the heart of Italy with every bite.
       </p>
-      <button className={`${quicksand.className} bg-white hover:bg-black text-black hover:text-white px-2 py-1 text-lg mt-5`}>
+      <Link href="/reserve" className={`${quicksand.className} bg-white hover:bg-black text-black hover:text-white px-2 py-1 text-lg mt-5`}>
         Book a Table
-      </button>
+      </Link>
     </div>
 
     <div className="flex items-center justify-start h-[400px]">

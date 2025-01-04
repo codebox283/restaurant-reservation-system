@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { DayPicker } from 'react-day-picker';
 import "react-day-picker/dist/style.css"; // Import DayPicker styles
 import { quicksand } from '../fonts';
-import { DateTime } from 'luxon';
 
 const BookingForm = () => {
     const [currentDate, setCurrentDate] = useState(new Date());
